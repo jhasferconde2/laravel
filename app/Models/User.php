@@ -10,10 +10,6 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    public function chirps()
-    {
-        return $this->hasMany(Chirp::class);
-    }
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -45,4 +41,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function chirps()
+    {
+        return $this->hasMany(Chirp::class);
+    }
 }
